@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <link rel="stylesheet" href="css/scrollling.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/scrollling.js"></script>
+    <script>
+        $(function(){
+            var imgArr = [
+                "images/picture01.jpg",
+                "images/picture02.jpg",
+                "images/picture03.jpg",
+                "images/picture04.jpg"
+            ];
+            $("#banner").combScrolling({
+                    imgData: imgArr,
+                    speed: 500,
+                    time: 2000,
+                    next:true,
+                    style: "banner-style"
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="banner"></div>
+    ===============功能======================
+
+
+                实现简单的轮播效果
+
+                -----基于jQuery-----
+
+
+    =========================================
+
+            默认调用方法（不需要传参数）
+                    默认调用
+                            $("#banner").combScrolling()
+
+                    其他调用方法（传对象进去）
+                            $("#banner").combScrolling({
+                                imgData: imgArr,
+                                speed: 500,
+                                time: 2000,
+                                next:true,
+                                style: "banner-style"
+                            })
+</body>
+</html>

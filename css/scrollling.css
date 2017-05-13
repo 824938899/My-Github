@@ -1,0 +1,49 @@
+*{ margin: 0; padding: 0;}
+ul li{ list-style: none;}
+.banner-style{
+    width: 800px;
+    height:500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.banner-img{
+    width: 800px;
+    height: 500px;
+    position: relative;
+}
+.banner-img>ul{
+    position: absolute; top: 0;}
+.banner-img>ul>li{
+    float: left;
+    text-align: center;
+    line-height: 500px;
+    font-size:80px;
+    color: bisque;
+    /*color: transparent;*/
+}
+.banner-btn{
+    width: 800px;
+    height: 0;
+    position: relative;
+}
+.banner-ul{
+    width: 180px;
+    height: 22px;
+    position: absolute;
+    bottom: 20px;
+    left: 310px;
+}
+.banner-ul>li{
+    width: 20px;
+    height: 20px;
+    background: #d5d5d5;
+    float: left;
+    margin-left: 20px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+.banner-ul>li.li-change{cursor: pointer; background-color: blue;}
+.banner-btn>div{ width:45px;height:50px;position: absolute;bottom: 235px;background-image: url("../images/destin_main.png");cursor: pointer}
+.left-btn{ left: 0; background-position: -4px -52px;}
+.right-btn{ right: 0; background-position: -50px 0;}
