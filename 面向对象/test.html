@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    function Person(age,name){
+            this.age=age;
+            this.name=name;
+
+    }
+   Person.prototype.fun=function(){
+       alert(this.name);
+   };
+    var obj=new Person("18岁","张三");
+   delete obj.name;
+   console.log(Person.prototype.constructor);
+   function PersonTo(sex,size){
+       this.sex=sex;
+       this.size=size
+   }
+   PersonTo.prototype=obj;
+   var obj2=new PersonTo("男","大");
+   console.log(obj2.name);
+   console.log(obj2.sex);
+   console.log(PersonTo.__proto__.__proto__.__proto__);
+
+    //console.log(Person["__proto__"]["__proto__"]);//true=="Object{}"
+    //console.log(obj["__proto__"]==Person["prototype"]);//true
+    //console.log(Person.prototype.constructor==Person);//true
+
+
+
+
+   //实例没有prototype这个属性，只有__proto__这个属性
+   //函数对象有Prototype和__proto__这两个属性；
+
+    /*
+    =============构造函数的层级关系==================
+
+    Person.__proto__=function(){}
+    function.__proto__=object
+    object.__proto__=null
+
+    ===============================================
+    */
+
+    /*
+    ====================实例的层级关系===============
+
+    实例的__proto__指向构造函数的prototype属性
+    实例的__proto__.__proto__指向一个对象即他的父亲原型
+    实例的__proto__.__proto__.__proto__指向最大的object
+    实例的__proto__.__proto__.__proto__.__proto__为null
+
+    =================================================
+    */
+
+
+    /*
+    ==============他们之间的关系？======================
+
+    每一个函数都有一个prototype属性，
+    每创建一个实例 都会有一个__proto__属性这个属性指向构造函数的prototype属性
+    构造函数的prototype有一个constructor 这个属性指向构造函数;
+    关系有点复杂,我目前就写到这,还需要深挖。。。。。
+
+    ==================================================
+    */
+</script>
+</body>
+</html>
