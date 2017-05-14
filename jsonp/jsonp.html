@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--<script src="https://api.douban.com/v2/movie/in_theaters?start=5&count=3&id=1&name=zhangsan&callback=demo"></script>-->
+<script>
+//业务逻辑：跟数据有关，可以复用
+    (function(window,document){
+        var jsonp=function(url,data,callback){
+            //{id=1,name='zhangsan'}
+            var cbFunName='my_jsonp_callBack'+(new Date().getTime());
+            window[cbFunName]=callback;//需要把callback挂载到window对象中
+            var urlString=url.indexOf('?')==-1?'?':'&';
+            for(var key in data){
+                urlString+=key+'='+data[key]+'&';
+            }
+            urlString+='callback='+cbFunName;
+            var scriptEle=document.createElement('script');
+            scriptEle.src=url+urlString;
+            document.body.appendChild(scriptEle);
+
+        };
+        window.$diyJsonp=jsonp
+    })(typeof window !== "undefined" ? window : this,document);
+
+    window.$diyJsonp(
+            "https://api.douban.com/v2/movie/in_theaters",
+            {start:5,count:3},
+            function(data){
+                console.log(data);
+            }
+    );
+</script>
+</body>
+</html>
